@@ -17,7 +17,7 @@ variable "ec2_tags" {
 }
 
 variable "sg_name" {
-    default = "vars-file-allow-all"
+    default = "allow-all"
 }
 
 variable "sg_description" {
@@ -45,17 +45,17 @@ variable "sg_tags" {
 }
 
 variable "environment" {
-    default = "dev"
+    default = "prod"
 }
 
 variable "instances" {
-    default = ["mongodb","redis","mysql","rabbitmq"]
+  default = ["mongodb", "redis", "mysql", "rabbitmq"]
 }
 
 variable "zone_id" {
-    default = "Z04148562397SV171Q11M"
+  default = ""
 }
 
 variable "domain_name" {
-    default = "daws85s.cyou"
+  default = "daws845s.cyou"
 }
