@@ -11,7 +11,7 @@ variable "instance_type" {
 variable "ec2_tags" {
   type = map(string)
   default = {
-    Name    = "HelloWorld"
+    Name    = "Roboshop"
     Purpose = "variables-demo"
   }
 }
@@ -33,19 +33,8 @@ variable "to_port" {
   default = 0
 }
 
-variable "cidr_blocks" {
-  type    = list(string)
-  default = ["0.0.0.0/0"]
-}
-
-variable "sg_tags" {
-  default = {
-    Name = "allow-all"
-  }
-}
-
 variable "ingress_ports" {
-  default = [ # list(map)
+  default = [ 
     {
       from_port = 22
       to_port   = 22
@@ -59,4 +48,36 @@ variable "ingress_ports" {
       to_port   = 8080
     }
   ]
+}
+
+variable "cidr_blocks" {
+  type    = list(string)
+  default = ["0.0.0.0/0"]
+}
+
+variable "sg_tags" {
+  default = {
+    Name = "allow-all"
+  }
+}
+
+variable "environment" {
+  default = "prod"
+}
+
+variable "instances" {
+        default = {
+        mongodb = "t3.micro" # each keyword is assigned for every iteration. you will get each.key and each.value
+        redis = "t3.micro"
+        mysql = "t3.small"
+        rabbitmq = "t3.micro"
+        }
+}
+
+variable "zone_id" {
+  default = "Z04148562397SV171Q11M"
+}
+
+variable "domain_name" {
+  default = "daws85s.cyou"
 }
